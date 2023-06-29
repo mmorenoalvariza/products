@@ -1,7 +1,7 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 const initSubTotal = (key: string, defaultValue: number) => () => {
-  const st = localStorage.getItem('subTotal');
+  const st = localStorage.getItem(key);
   if (st) {
     return Number.parseInt(st);
   }
@@ -14,13 +14,9 @@ export default function useStateWithStorage(
 ): [number, (newSubTotal: number) => void] {
   const [subTotal, setSubTotal] = useState(initSubTotal(key, defaultValue));
 
-  const handleSubTotal = useCallback(
-    (subTotal: number) => {
-      localStorage.setItem(key, JSON.stringify(subTotal));
-      setSubTotal(subTotal);
-    },
-    [key, setSubTotal]
-  );
+  useEffect(() => {
+    window.localStorage.setItem(key, JSON.stringify(subTotal));
+  }, [key, subTotal]);
 
-  return [subTotal, handleSubTotal];
+  return [subTotal, setSubTotal];
 }

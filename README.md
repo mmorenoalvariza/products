@@ -48,3 +48,12 @@ You will also see any lint errors in the console.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+### Docker
+
+Create the image:\
+docker build . -t santex-products
+
+Run the container on port 3000:\
+
+docker run -p 3000:3000 -d santex-products

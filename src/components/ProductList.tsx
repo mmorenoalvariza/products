@@ -12,7 +12,13 @@ import styled from 'styled-components';
 
 const Section = styled.section`
   display: grid;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: auto;
+  @media (min-width: 1000px) {
+    grid-template-columns: auto auto;
+  }
+  @media (min-width: 2200px) {
+    grid-template-columns: auto auto auto;
+  }
   gap: 10px;
   width: 90%;
 `;

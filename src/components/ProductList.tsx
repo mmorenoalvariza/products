@@ -22,8 +22,12 @@ const Section = styled.section`
   gap: 10px;
   width: 90%;
 `;
-
+/**
+ *
+ * @returns The list of products
+ */
 export function ProductList() {
+  //Fetches the list of products
   const { data, loading } = useQuery<{ products: ProductListType }>(
     GET_PRODUCTS
   );
@@ -33,6 +37,10 @@ export function ProductList() {
   }>(ADD_ITEM_TO_ORDER);
   const { setSubTotal } = useContext(SubTotalContext);
 
+  /**
+   * Adds an item to the order
+   * @param id Product id
+   */
   const handleAdd = async (id: string) => {
     const result = await mutateFunction({ variables: { id, quantity: 1 } });
 
@@ -47,6 +55,7 @@ export function ProductList() {
     return <div>Loading...</div>;
   }
 
+  //Flatmaps all the variants of each product
   const items = (data.products.items as Product[]).flatMap((p) => p.variants);
 
   return (

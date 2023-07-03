@@ -3,7 +3,7 @@ import { useQuery, useMutation } from '@apollo/client';
 import { GET_PRODUCTS } from '../graphql/queries';
 import { ADD_ITEM_TO_ORDER } from '../graphql/mutations';
 import SubTotalContext from '../hooks/subTotalContext';
-import ProductItem from './ProductItem';
+import ProductItem from './ProductItem/ProductItem';
 import {
   Product,
   ProductList as ProductListType,

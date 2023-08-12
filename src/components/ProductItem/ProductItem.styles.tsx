@@ -32,4 +32,12 @@ const ProductRightWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export { Article, Image, ProductLeftWrapper, ProductRightWrapper };
+const StyledP = styled.p`
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+`;
+
+export { Article, Image, ProductLeftWrapper, ProductRightWrapper, StyledP };

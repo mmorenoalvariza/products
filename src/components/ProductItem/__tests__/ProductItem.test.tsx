@@ -1,5 +1,5 @@
 import userEvent from '@testing-library/user-event';
-import { ProductVariant } from '../../__generated__/graphql';
+import { ProductVariant } from '../../../__generated__/graphql';
 import ProductItem from '../ProductItem';
 import { render, screen, waitFor } from '@testing-library/react';
 

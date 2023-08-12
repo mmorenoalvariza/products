@@ -1,10 +1,11 @@
 import { FC } from 'react';
-import { ProductVariant } from '../__generated__/graphql';
+import { ProductVariant } from '../../__generated__/graphql';
 import {
   Article,
   Image,
   ProductLeftWrapper,
   ProductRightWrapper,
+  StyledP,
 } from './ProductItem.styles';
 type ProductItemType = {
   productVariant: ProductVariant;
@@ -24,7 +25,7 @@ const ProductItem: FC<ProductItemType> = ({ productVariant, handleAdd }) => {
       </ProductLeftWrapper>
       <ProductRightWrapper>
         <h4>{productVariant.name}</h4>
-        <p>{productVariant.product.description}</p>
+        <StyledP>{productVariant.product.description}</StyledP>
         <p>Price: $ {productVariant.price}</p>
         <div>
           <button onClick={() => handleAdd(productVariant.id)}>Buy</button>

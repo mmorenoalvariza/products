@@ -45,6 +45,6 @@ describe('ProductList', () => {
       </MockedProvider>
     );
     expect(screen.getByText('Loading...')).toBeVisible();
-    await waitFor(() => expect(screen.getByText('Laptop')).toBeVisible());
+    await waitFor(() => expect(screen.getByText('Laptopd')).toBeVisible());
   });
 });

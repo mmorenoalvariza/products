@@ -32,7 +32,7 @@ export function ProductList() {
     GET_PRODUCTS
   );
 
-  const [mutateFunction] = useMutation<{
+  const [addItemToCart] = useMutation<{
     addItemToOrder: { subTotal: number };
   }>(ADD_ITEM_TO_ORDER);
   const { setSubTotal } = useContext(SubTotalContext);
@@ -42,7 +42,7 @@ export function ProductList() {
    * @param id Product id
    */
   const handleAdd = async (id: string) => {
-    const result = await mutateFunction({ variables: { id, quantity: 1 } });
+    const result = await addItemToCart({ variables: { id, quantity: 1 } });
 
     const addItemToOrder = result.data?.addItemToOrder;
 
